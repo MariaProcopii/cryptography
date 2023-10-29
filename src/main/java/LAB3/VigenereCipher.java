@@ -3,10 +3,10 @@ package LAB3;
 import java.util.*;
 
 public class VigenereCipher {
-    LinkedHashMap<Character, Integer> findInt = new LinkedHashMap<>();
-    ArrayList<Character> alphabet = new ArrayList<>();
+    static LinkedHashMap<Character, Integer> findInt = new LinkedHashMap<>();
+    static ArrayList<Character> alphabet = new ArrayList<>();
 
-    public void encrypt(String text, String key){
+    public static void encrypt(String text, String key){
         StringBuilder encryptedMessage = new StringBuilder();
 
         if(alphabet.size() == 0){
@@ -23,10 +23,10 @@ public class VigenereCipher {
             char encryptedChar = alphabet.get(encryptedCharIndex);
             encryptedMessage.append(encryptedChar);
         }
-        System.out.println(encryptedMessage);
+        System.out.println("\n" + encryptedMessage);
     }
 
-    public void decrypt(String text, String key){
+    public static void decrypt(String text, String key){
         StringBuilder decryptedMessage = new StringBuilder();
         if(alphabet.size() == 0){
             getAlphabet();
@@ -42,12 +42,12 @@ public class VigenereCipher {
             char decryptedChar = alphabet.get(decryptedCharIndex);
             decryptedMessage.append(decryptedChar);
         }
-        System.out.println(decryptedMessage);
+        System.out.println("\n" + decryptedMessage);
     }
 
-    public void getAlphabet() {
+    public static void getAlphabet() {
 
-        for (int i = 0; i <= 30; i++) {
+        for (int i = 0; i < 26; i++) {
             char c = (char) ('A' + i);
             alphabet.add(c);
         }
@@ -60,5 +60,6 @@ public class VigenereCipher {
         for(int i = 0; i <=30; i++){
             findInt.put(alphabet.get(i), i);
         }
+//        findInt.entrySet().forEach(c -> System.out.println(c.getKey() + ":" + c.getValue() + "; "));
     }
 }
